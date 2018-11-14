@@ -18,18 +18,19 @@
       <script type="text/babel">
 
       class Card extends React.Component {
-      render() {
-
-      var cardStyle = {
-        height: 200,
-        width: 150,
-        padding: 0,
-        backgroundColor: "#FFF",
-        boxShadow: "0px 0px 5px #666"
-      };
+        render() {
+           var cardStyle = {
+            height: 200,
+            width: 150,
+            padding: 0,
+            backgroundColor: "#FFF",
+            boxShadow: "0px 0px 5px #666"
+          };
 
         return (
           <div style={cardStyle}>
+            <Square color={this.props.color}/>
+            <Label color={this.props.color}/>
           </div>
         );
       }
@@ -41,7 +42,7 @@
         var squareStyle = {
           height: 150,
           width: 150,
-          backgroundColor: "#FF6663"
+          backgroundColor: this.props.color
         };
 
         return(
@@ -62,7 +63,7 @@
           };
 
           return (
-            <p style={labelStyle}>#FF6663</p>
+            <p style={labelStyle}>{this.props.color}</p>
           );
         }
         }
@@ -70,12 +71,10 @@
 
 
       ReactDOM.render(
-        // doesn't work <div style={cardStyle}>
         <div>
-          <Square/>
-            <Label/>
-          </div>,
-          document.querySelector("#container")
+          <Card color="#FFA737"/>
+        </div>,
+        document.querySelector("#container")
         );
       </script>
     </body>
